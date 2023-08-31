@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    //roles
+    //abilities
+    //ability_role
+        //ability_id
+        //role_id
+    //user
+    //role_user
+        //user_id
+        //role_id
+
+    //roles
+    //admin
+        //create_post
+        //create_forum
+        //delete_user
+    //guest
+        //create_user
+        //create_post
+        //edit_user
+    //employee
+            //delete_user
+        //create_post
+        //delete_post
+
+    Auth::loginUsingId(1);
+
+
+
+    $users = User::all();
+    return view('welcome', [
+        'users' => $users
+    ]);
+
 });
